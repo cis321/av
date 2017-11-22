@@ -2139,6 +2139,8 @@ angular.module('ofertasCalendarioApp')
     }
 
     $scope.searchPromos = function () {
+      $scope.departureEventSource = [];
+      $scope.arriveEventSource = [];
       for (var i = 0; i < $scope.events.length; i++) {
         if ($scope.events[i].source === $scope.selectedSource && $scope.events[i].destination === $scope.selectedDestination) {
           $scope.departureEventSource = $scope.events[i].eventSources;
@@ -2154,4 +2156,19 @@ angular.module('ofertasCalendarioApp')
         $scope.showCalendar = true;
       }
     }
+
+    $scope.uiConfig = {
+      calendar: {
+        editable: false,
+        header: {
+          left: 'title',
+          center: '',
+          right: 'prev,next'
+        },
+      }
+    };
+
+    $scope.uiConfig.calendar.dayNames = ["Domingo", "Lunes", "Mertes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    $scope.uiConfig.calendar.dayNamesShort = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+    $scope.uiConfig.calendar.monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
   });

@@ -1,5 +1,5 @@
 <div class="calendario">
-  <div class="col-md-7 col-md-offset-3">
+  <div class="desplegables">
     Origen
     <select ng-model="selectedSource" ng-change="hideCalendar()" ng-options="x for x in sourceCities" /> Destino
     <select ng-model="selectedDestination" ng-change="hideCalendar()" ng-options="x for x in destinationCities" />
@@ -11,21 +11,21 @@
 <br>
 <div ng-if="showCalendar">
   <div class="columna1">
-    <div class="col-md-6">
-      <h3>{{selectedSource}} - {{selectedDestination}}</h3>
+    <div>
+      <h3 class="titulo-origen">{{selectedSource}} - {{selectedDestination}}</h3>
     </div>
-    <div class="col-md-6">
-      <h3>Desde {{events[sourceIndex].value}}</h3>
+    <div>
+      <h3 class="desde">Desde {{events[sourceIndex].value}}</h3>
     </div>
-    <div ui-calendar ng-model="departureEventSource"></div>
+    <div ui-calendar="uiConfig.calendar" ng-model="departureEventSource"></div>
   </div>
   <div class="columna2">
-    <div class="col-md-6">
-      <h3>{{selectedDestination}} - {{selectedSource}}</h2>
+    <div>
+      <h3 class="titulo-origen">{{selectedDestination}} - {{selectedSource}}</h2>
     </div>
-    <div class="col-md-6">
-      <h3>Desde {{events[destinationIndex].value}}</h3>
+    <div>
+      <h3 class="desde">Desde {{events[destinationIndex].value}}</h3>
     </div>
-    <div ui-calendar ng-model="arriveEventSource"></div>
+    <div ui-calendar="uiConfig.calendar" ng-model="arriveEventSource"></div>
   </div>
 </div>
